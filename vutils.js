@@ -73,7 +73,7 @@
   v.extend = function (obj, src, over) {
     if(!v.isObject(obj)) return obj;
     var key
-    , over = over || true;
+    ,   over = typeof over === 'boolean' ? over : true;
     for (key in src) {
       if (over || !(key in obj)) {
         obj[key] = src[key];
