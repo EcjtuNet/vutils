@@ -27,15 +27,52 @@
   };
 
   //内置对象原型简写声明
-  var ArrayProto = Array.prototype
-  ,   ObjProto   = Object.prototype
-  ,   FuncProto  = Function.prototype;
+  var ArrayProto = Array.prototype,
+      ObjProto   = Object.prototype,
+      FuncProto  = Function.prototype;
 
   //常用内置函数简写声明
-  var push  = v.push  = ArrayProto.push
-  ,   slice = v.slice = ArrayProto.slice
-  ,   toStr = v.toStr = ObjProto.toString
-  ,   hasOp = v.hasOp = ObjProto.hasOwnProperty;
+  var push    =  ArrayProto.push,
+      slice   = ArrayProto.slice,
+      forEach = ArrayProto.forEach,
+      toStr   = ObjProto.toString,
+      hasOp   = ObjProto.hasOwnProperty;
+
+  /* All types need
+   * By Venshy
+   */
+  v.each = v.forEach =  function (obj, callback) {
+    if (!v.isObject(obj)) return false;
+    var i
+    if (v.isArray(obj)) {
+      if (forEach)  
+        forEach.call(obj, callback);
+      else 
+        for (i = obj.length - 1; i >= 0; i--)
+          callback(obj[i], i, obj);
+    } else {
+      for (i in obj) {
+        callback(obj[i], i, obj);
+      }
+    }
+  };
+
+  v.objEach = function (obj, callback) {
+    var i;
+    if (!v.isObject(obj)) return false;
+    else for(i in obj) callback(obj[i], i, obj); 
+  };
+
+  v.arrEach = function (arr, callback) {
+    var i;
+    if (v.isArray(arr))
+      for (i = arr.length - 1; i >= 0; i--)
+        callback(arr[i], i, arr);
+    else return false;
+  };
+
+
+
   /* 
    * About Array
    * By Venshy
@@ -61,7 +98,7 @@
   //begin end 提供slice参数
   //考虑 obj is undefined & obj is an Array
   v.toArray = function (obj, begin, end) {
-    if(!obj) return [];
+    if (!obj) return [];
     return !v.isArray(obj) ?
       slice.call(obj, begin || 0, end || 0) :
       obj;
@@ -71,7 +108,7 @@
   //src: 扩展属性来源
   //over: 是否覆盖 Default: true
   v.extend = function (obj, src, over) {
-    if(!v.isObject(obj)) return obj;
+    if (!v.isObject(obj)) return obj;
     var key
     ,   over = typeof over === 'boolean' ? over : true;
     for (key in src) {
@@ -83,8 +120,13 @@
   };
   //clone Object
   v.clone = function (obj) {
-    if(!v.isObject(obj)) return obj;
+    if (!v.isObject(obj)) return obj;
     return v.extend({}, obj);
   };
+  //判断对象是否拥有某属性
+  v.has = function (obj, attr) {
+    if (!v.isObject(obj)) return false;
+
+  }
 
 }.call(this));
