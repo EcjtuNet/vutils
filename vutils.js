@@ -83,7 +83,15 @@
     return toStr.call(arr) === "[object Array]";
    };
 
+  /* 
+   * About Function
+   * By Venshy
+   */ 
+   v.isFunction = function (func) {
+    return typeof func === 'function';
+   }
 
+   
   /* 
    * About Object
    * By Venshy
@@ -126,7 +134,6 @@
   //判断对象是否拥有某属性
   v.has = function (obj, attr) {
     if (!v.isObject(obj)) return false;
-
   }
 
 }.call(this));
