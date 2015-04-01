@@ -28,15 +28,15 @@
 
 	//内置对象原型简写声明
 	var ArrayProto = Array.prototype,
-			ObjProto   = Object.prototype,
-			FuncProto  = Function.prototype;
+		ObjProto   = Object.prototype,
+		FuncProto  = Function.prototype;
 
 	//常用内置函数简写声明
-	var push    =  ArrayProto.push,
-			slice   = ArrayProto.slice,
-			forEach = ArrayProto.forEach,
-			toStr   = ObjProto.toString,
-			hasOp   = ObjProto.hasOwnProperty;
+	var push    = ArrayProto.push,
+		slice   = ArrayProto.slice,
+		forEach = ArrayProto.forEach,
+		toStr   = ObjProto.toString,
+		hasOp   = ObjProto.hasOwnProperty;
 
 	/* All types need
 	 * By Venshy
@@ -83,13 +83,14 @@
 		return toStr.call(arr) === "[object Array]";
 	 };
 
+
 	/* 
 	 * About Function
 	 * By Venshy
 	 */ 
 	 v.isFunction = function (func) {
 		return typeof func === 'function';
-	 }
+	 };
 
 	 
 	/* 

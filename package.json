@@ -1,0 +1,27 @@
+{
+  "name": "vutils",
+  "version": "0.0.0",
+  "description": "vuitls is a javascript lib",
+  "main": "vutils.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-qunit": "^1.2.1"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EcjtuNet/vutils.git"
+  },
+  "author": "zvenshy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EcjtuNet/vutils/issues"
+  },
+  "homepage": "https://github.com/EcjtuNet/vutils"
+}
