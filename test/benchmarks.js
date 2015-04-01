@@ -6,7 +6,7 @@
     var testOverF = {'name': 'VenshyReal'};
     var testOverT = {'name': 'VenshyReal', 'team': 'EcjtuNet'};
     var i ; 
-    var TIMES = 1000000;//循环次数，性能测试参数
+    var TIMES = 100;//循环次数，性能测试参数
 
     //test v.extend
     test('extend', function () {
