@@ -10,7 +10,7 @@
     
   },
   "devDependencies": {
-    "gulp": "^3.8.11",
+    "gulp": ">=3.0",
     "gulp-qunit": "^1.2.1"
   },
   "scripts": {
